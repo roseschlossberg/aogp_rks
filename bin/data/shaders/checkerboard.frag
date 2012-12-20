@@ -1,4 +1,3 @@
-
 uniform sampler2DRect tex0;
 
 varying float  TexCoordx;
@@ -43,5 +42,5 @@ void main()
     else if ((checkPos.y< 0.5)&& (checkPos.x > 0.5)){ color = vec4 (srcPixel.g, srcPixel.g, srcPixel.g, 0.5);
     }
     
-``gl_FragColor = vec4(color);
+  gl_FragColor = vec4(color);
 }
