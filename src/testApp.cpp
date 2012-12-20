@@ -2,16 +2,12 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    	ofSetLogLevel(OF_LOG_VERBOSE);
+    ofSetLogLevel(OF_LOG_VERBOSE);
 
-    
     myMovie.loadMovie("vomit.mp4");
     myMovie.play();
     shader.load("shaders/checkerboard.vs", "shaders/checkerboard.frag");
-    myImage.loadImage("pancake.jpg");
-    
-    fbo.allocate(400, 300);
-    
+       
  
 }
 
@@ -25,22 +21,12 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
-fbo.begin();
-    ofClear(0, 0, 0,255);
-    fbo.draw(0,0, 600, 600);
 
-    
-    
-    //myImage.draw(0,0,600, 400);
+    ofClear(0, 0, 0,255);
     shader.begin();
-    
-    
     shader.setUniformTexture("tex0", myMovie.getTextureReference(), 1);
-   // shader.setUniformTexture("tex0", myImage, 1);
-    //myMovie.draw(0,0, 600, 400);
-    //ofBox(100,100, 100, 50);
+    myMovie.draw(0,0, 600, 400);
     shader.end();
-    fbo.end();
 }
 
 //--------------------------------------------------------------
